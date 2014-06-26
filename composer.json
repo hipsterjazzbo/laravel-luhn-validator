@@ -1,6 +1,7 @@
 {
     "name": "hipsterjazzbo/laravel-luhn-validator",
-    "description": "",
+    "description": "A luhn algorithm validator for Laravel 4's Validator",
+    "license": "MIT",
     "authors": [
         {
             "name": "Caleb Fidecaro",
