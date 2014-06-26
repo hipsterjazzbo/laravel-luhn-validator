@@ -16,7 +16,7 @@ Start by adding this package to your `composer.json`:
 Now you've got to update composer:
 
 ```bash
-composer update
+$ composer update
 ```
 
 And then add this package to the `ServiceProviders` array in your `app/config/app.php`:
