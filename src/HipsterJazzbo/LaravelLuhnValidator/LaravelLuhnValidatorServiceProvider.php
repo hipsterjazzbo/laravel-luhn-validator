@@ -16,8 +16,15 @@ class LaravelLuhnValidatorServiceProvider extends ServiceProvider {
 		/**
 		 * Luhn algorithm number checker - (c) 2005-2008 shaman - www.planzero.org
 		 */
-		$this->app->validator->extend('luhn', function ($attribute, $value, $parameters)
+		$this->app->validator->extend('luhn', function ($attribute, $value, $parameters, $validator)
 		{
+			// Add a custom message. Doing it this way instead of doing
+			// Validator::extend('luhn', 'Class@method') mean we're not
+			// taking up the custom resolver spot.
+			
+			/** @var \Illuminate\Validation\Validator $validator */
+			$validator->setCustomMessages(['luhn' => 'Card number is invalid.']);
+
 			// Strip any non-digits (useful for credit card numbers with spaces and hyphens)
 			$value = preg_replace('/\D/', '', $value);
 
